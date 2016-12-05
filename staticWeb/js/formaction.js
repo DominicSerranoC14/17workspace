@@ -3,6 +3,7 @@
 var display = document.getElementById('display');
 
 function thisClick() {
+  debugger
   display.innerText = "This button was clicked!";
 };
 
