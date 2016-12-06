@@ -1,0 +1,16 @@
+{
+  "messages": [
+    {
+      "text": "Hello there",
+      "author": "Greg"
+    },
+    {
+      "text": "Hey there",
+      "author": "Fred"
+    },
+    {
+      "text": "Hi there",
+      "author": "Daniel"
+    }
+  ]
+}
