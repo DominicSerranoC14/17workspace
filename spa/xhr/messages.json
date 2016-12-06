@@ -2,15 +2,18 @@
   "messages": [
     {
       "text": "Hello there",
-      "author": "Greg"
+      "author": "Greg",
+      "date": "Dec 6th"
     },
     {
       "text": "Hey there",
-      "author": "Fred"
+      "author": "Fred",
+      "date": "Dec 5th"
     },
     {
       "text": "Hi there",
-      "author": "Daniel"
+      "author": "Daniel",
+      "date": "Dec 7th"
     }
   ]
 }
