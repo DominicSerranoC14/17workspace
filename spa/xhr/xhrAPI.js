@@ -28,12 +28,15 @@ function saveUser (e) {
 
 function displayUser () {
   // Built HTML string to output to DOM
+  if (!user) {
+    console.log("No user");
+  };
   var html = "";
   html += `<h1>`;
   html += `${user.name.title}. ${user.name.first} ${user.name.last} `;
   html += `<br><img src="${user.picture.large}">`;
   html += `</h1>`;
-  html += `<p>Click save random user button to display another user!</p>`;
+  html += `<p>Click get random user button to display another user!</p>`;
 
   // Output html to DOM
   outputDiv.innerHTML = html;
