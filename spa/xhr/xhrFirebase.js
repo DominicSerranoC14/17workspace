@@ -18,7 +18,7 @@ function loadMessages (xhrEvent) {
 
 // Create new request object, open and send it
 var request = new XMLHttpRequest();
-request.open('GET', 'messages.json');
+request.open('GET', 'https://cohort17-d332b.firebaseio.com/.json');
 request.send();
 
 // Add event listener to the XHR load
