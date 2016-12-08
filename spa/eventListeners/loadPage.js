@@ -1,26 +1,29 @@
+// Reference to the output-div element
 var outputDiv = document.getElementById('output-div');
 
-var elements = [
-  `div`,
-  `div`,
-  `div`,
-  `div`,
-  `div`,
-  `div`
-];
 
-function populateDOM(elArray) {
-  var div;
-  var button;
-  for (var i = 0; i < elements.length; i++) {
+// Function that will populate the DOM dynamically
+function populateDOM() {
+  // Set a counter variable for loop
+  var counter = 4;
+  var div, button;
+  for (var i = 0; i < counter; i++) {
+    // Create an HTML button element
     button = document.createElement('button');
-    button.innerText = `I am Button ${i +1}`;
+    // Set the button's text
+    button.innerText = `Button ${i+1}`;
+    // Create an HTML div element
     div = document.createElement('div');
-    div.innerText = `I am DIV ${i + 1}`;
-    div.setAttribute('class', 'div');
+    // Set the div's text
+    div.innerText = `DIV ${i+1}:  `;
+    // Give the div a 'divs' class
+    div.setAttribute('class', 'divs');
+    // Append the button to the div
     div.appendChild(button);
+    // Append the div to the outputDiv
     outputDiv.appendChild(div);
   };
 };
 
-populateDOM(elements);
+// Call the populateDOM function
+populateDOM();

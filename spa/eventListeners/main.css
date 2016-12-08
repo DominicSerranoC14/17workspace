@@ -1,11 +1,35 @@
 body {
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: monospace;
 }
 
-.div {
-  margin: 4rem auto;
+#display-div {
+  margin: 1rem auto;
+  background: grey;
+  width: 35%;
+  border-radius: 15%;
+}
+
+#output-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.divs {
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 25%;
   background: grey;
   width: 20%;
+}
+
+button {
+  font-size: 12px;
+}
+
+input {
+  font-size: 20px;
 }
