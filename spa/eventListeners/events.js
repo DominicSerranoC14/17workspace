@@ -1,8 +1,14 @@
+// Reference to DOM elements
 var body = document.body;
-
-var buttonList = document.getElementsByTagName('button');
 var newDivButton = document.getElementById('new-div-button');
 var displayDiv = document.getElementById('display-div');
+// Reference to all button elements on pageload
+var buttonList = document.getElementsByTagName('button');
+
+function activateSingleButton (e) {
+  displayDiv.innerText = `You clicked ${e.target.innerText}\n`;
+  displayDiv.innerText += `${e.target.parentElement.innerText.split(':')[0]} is the parentElement`;
+};
 
 // Add event listeners to all buttons on the page
 function activateButtons () {
@@ -14,15 +20,11 @@ function activateButtons () {
 };
 activateButtons();
 
-function activateSingleButton (e) {
-  displayDiv.innerText = `You clicked ${e.target.innerText}\n`;
-  displayDiv.innerText += `${e.target.parentElement.innerText.split(':')[0]} is the parentElement`;
-};
-
 body.addEventListener('click', function (e) {
-  // console.log("event.target", e.target);
-  // console.log("Parent", e.target.parentElement);
-  // console.log("event.currentTarget", e.currentTarget);
+  console.log("//// body eventListener")
+  console.log("event.target", e.target);
+  console.log("event.currentTarget", e.currentTarget);
+  console.log("Parent", e.target.parentElement);
 });
 
 newDivButton.addEventListener('click', function(e) {
