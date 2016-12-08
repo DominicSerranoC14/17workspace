@@ -9,14 +9,18 @@ var elements = [
   `div`
 ];
 
-function createElement(elArray) {
+function populateDOM(elArray) {
   var div;
+  var button;
   for (var i = 0; i < elements.length; i++) {
-    div = document.createElement(elArray[i]);
-    div.innerText = `I am DIV ${i}`;
+    button = document.createElement('button');
+    button.innerText = `I am Button ${i +1}`;
+    div = document.createElement('div');
+    div.innerText = `I am DIV ${i + 1}`;
     div.setAttribute('class', 'div');
+    div.appendChild(button);
     outputDiv.appendChild(div);
   };
 };
 
-createElement(elements);
+populateDOM(elements);
