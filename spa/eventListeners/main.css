@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+.div {
+  margin: 4rem auto;
+  background: grey;
+  width: 20%;
+}
