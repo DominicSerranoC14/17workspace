@@ -1,26 +1,18 @@
 var outputDiv = document.getElementById('output-div');
 
-var elements = [
-  `div`,
-  `div`,
-  `div`,
-  `div`,
-  `div`,
-  `div`
-];
-
-function populateDOM(elArray) {
+function populateDOM() {
+  var counter = 1;
   var div;
   var button;
-  for (var i = 0; i < elements.length; i++) {
+  for (var i = 0; i < counter; i++) {
     button = document.createElement('button');
-    button.innerText = `I am Button ${i +1}`;
+    button.innerText = `Button ${i +1}`;
     div = document.createElement('div');
-    div.innerText = `I am DIV ${i + 1}`;
+    div.innerText = `DIV ${i + 1}:  `;
     div.setAttribute('class', 'div');
     div.appendChild(button);
     outputDiv.appendChild(div);
   };
 };
 
-populateDOM(elements);
+populateDOM();

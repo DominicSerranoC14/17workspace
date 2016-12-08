@@ -4,8 +4,15 @@ body {
   font-size: 20px;
 }
 
+#display-div {
+  margin: 4rem auto;
+  background: grey;
+  width: 25%;
+}
+
 .div {
   margin: 4rem auto;
+  padding: 1rem;
   background: grey;
   width: 20%;
 }
