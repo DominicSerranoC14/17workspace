@@ -6,7 +6,6 @@ var displayDiv = document.getElementById('display-div');
 var buttonList = document.getElementsByTagName('button');
 
 
-
 // When a div button is clicked, the button element and parentElement name are displayed
 function displayButtonClicked (e) {
   displayDiv.innerText = `You clicked ${e.target.innerText}\n`;
@@ -14,25 +13,21 @@ function displayButtonClicked (e) {
 };
 
 
-// Add event listeners to all buttons on the page when page is loaded
-function activateButtons () {
-  for (var i = 0; i < buttonList.length; i++) {
-    // Adding an event listener to each button element
-    buttonList[i].addEventListener('click', displayButtonClicked)
-  };
-};
-activateButtons();
-
-
 // Add an event listener on the body element
 body.addEventListener('click', function (e) {
-  console.log("//// body eventListener")
-  // logs the target of the element clicked
-  console.log("event.target", e.target);
-  // logs the currentTarget of the element clicked
-  console.log("event.currentTarget", e.currentTarget);
-  // logs the parentElement of the element clicked
-  console.log("Parent", e.target.parentElement);
+  // Determine if the element that is clicked is a button
+  if (e.target.nodeName === 'BUTTON') {
+    // Fire the displayButtonClicked function
+    displayButtonClicked(e);
+  } else {
+    console.log("//// body eventListener")
+    // logs the target of the element clicked
+    console.log("event.target", e.target);
+    // logs the currentTarget of the element clicked
+    console.log("event.currentTarget", e.currentTarget);
+    // logs the parentElement of the element clicked
+    console.log("Parent", e.target.parentElement);
+  };
 });
 
 
@@ -43,8 +38,6 @@ newDivButton.addEventListener('click', function(e) {
   var newDivId = buttonList.length + 1;
   // Create a new HTML button element
   var button = document.createElement('button');
-  // Add the displayButtonClicked event listener to the button
-  button.addEventListener('click', displayButtonClicked);
   // Set the button's text
   button.innerText = `Button ${newDivId}`;
   // Create a new HTML div element
