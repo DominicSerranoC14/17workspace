@@ -14,7 +14,7 @@ body {
 
 #output-div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -33,3 +33,16 @@ button {
 input {
   font-size: 20px;
 }
+
+/* These styles are for multipleEvts.js */
+.container {
+  color: white;
+  background: grey;
+  width: 40%;
+  margin: .5rem auto;
+}
+
+#input {
+  margin-bottom: 2rem;
+}
+/***************************************/
