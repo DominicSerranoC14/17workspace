@@ -26,6 +26,25 @@ function loadMessages(XHRloadEvent) {
 };
 
 
+// Function that takes messageList from JSON and outputs them to the DOM
+function outputMessages (list) {
+  // Var to build HTML string
+  var html = "";
+  for (var i = 0; i < list.length; i++) {
+    // Store current object when iterating through array
+    var currentMessage = list[i];
+    // Concatenating message data into HTML div tags
+    // Create html string: "<div> Sender: Message </div>"
+    html += "<div>";
+    html += currentMessage.sender + ": ";
+    html += currentMessage.message;
+    html += "</div>";
+  };
+  // Output all div's to the DOM, inside of the outputDiv
+  outputDiv.innerHTML += html;
+};
+
+
 // Add event listenr to the button
 buttonEl.addEventListener("click", function () {
   // When there is a click, fire off second XHR request
@@ -37,21 +56,3 @@ buttonEl.addEventListener("click", function () {
   // Add event listener for the response to load
   myRequest2.addEventListener("load", loadMessages);
 });
-
-
-// Function that takes messageList from JSON and outputs them to the DOM
-function outputMessages (list) {
-  // Var to build HTML string
-  var html = "";
-  for (var i = 0; i < list.length; i++) {
-    // Store current object when iterating through array
-    var currentMessage = list[i];
-    // Concatenating message data into HTML div tags
-    html += "<div>";
-    html += currentMessage.sender + ": ";
-    html += currentMessage.message;
-    html += "</div>";
-  };
-  // Output all div's to the DOM, inside of the outputDiv
-  outputDiv.innerHTML += html;
-};
