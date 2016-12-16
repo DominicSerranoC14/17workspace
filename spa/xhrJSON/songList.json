@@ -1,0 +1,7 @@
+{
+  "songList": [
+    { "songName": "One", "album": "First Album", "artist": "Those Guys" },
+    { "songName": "Two", "album": "Second Album", "artist": "Them dudes" },
+    { "songName": "Three", "album": "Third Album", "artist": "Men" }
+  ]
+}

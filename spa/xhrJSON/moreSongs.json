@@ -1,0 +1,7 @@
+{
+  "songList": [
+    { "songName": "Four", "album": "Fourth Album", "artist": "Those Chicks" },
+    { "songName": "Five", "album": "Fifth Album", "artist": "Gals" },
+    { "songName": "Six", "album": "Sixth Album", "artist": "Salt n Peppa" }
+  ]
+}
