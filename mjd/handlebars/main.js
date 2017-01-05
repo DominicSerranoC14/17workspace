@@ -15,11 +15,12 @@ var data = {
   ]
 };
 
-Handlebars.registerHelper('list', function(items, options) {
+// Create a helper function call 'list'
+Handlebars.registerHelper('list', function(people, options) {
   var out = "<p>";
 
-  for(var i=0, l=items.length; i<l; i++) {
-    out = out + options.fn(items[i]) + "</p>";
+  for(var i=0, l=people.length; i<l; i++) {
+    out = out + options.fn(people[i]) + "</p>";
   };
 
   return out;
