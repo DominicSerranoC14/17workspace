@@ -12,8 +12,18 @@
   <script id="partial" type="text/x-handlebars-template">
     <div>
       <h1>{{title}}</h1>
-      <p>{{p1}}</p>
-      <p>{{p2}}</p>
+
+      <h4>Looping using a helper function</h4>
+      {{#list people}}{{firstName}} {{lastName}}{{/list}}
+
+      <h4>Indexing an array inside and object</h4>
+      <p>{{group.list.[0]}}</p>
+      <p>{{group.list.[1]}}</p>
+      
+      <h4>Indexing objects inside an array</h4>
+      <p>{{things.0.name}}</p>
+      <p>{{things.1.name}}</p>
+      <p>{{things.2.name}}</p>
     </div>
   </script>
 
