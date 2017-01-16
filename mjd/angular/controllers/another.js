@@ -1,6 +1,6 @@
 'use-strict';
 
-app.controller('HomeCtrl', function($scope) {
+app.controller('AnotherCtrl', function($scope) {
 
   $scope.message = 'Hello there.';
 

@@ -9,6 +9,10 @@ app.config(($routeProvider) => {
     controller: 'HomeCtrl',
     templateUrl: 'views/home.html'
   })
+  .when('/another', {
+    controller: 'AnotherCtrl',
+    templateUrl: 'views/another.html'
+  })
   .otherwise('/');
 
 });
