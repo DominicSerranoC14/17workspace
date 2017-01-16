@@ -2,6 +2,6 @@
 
 app.controller('AnotherCtrl', function($scope) {
 
-  $scope.message = 'Hello there.';
+  $scope.message = 'I am from AnotherCtrl!';
 
 });
