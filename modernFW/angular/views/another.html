@@ -3,4 +3,7 @@
 <h3 ng-if="list.length === 3">I only show up if there are three names.</h3>
 <input type="text" ng-model="searchList" placeholder="Search here" />
 
-<h3 ng-repeat="each in list | filter: searchList" ng-click="sayMyName(each)"><a href="#!/{{each.id}}">{{each.name}}</a></h3>
+<div ng-repeat="each in list | filter: searchList">
+  <h3><a href="#!/{{each.id}}">{{each.name}}</a></h3>
+  <input type="button" value="Click me" ng-click="sayMyName(each.name)" />
+</div>
