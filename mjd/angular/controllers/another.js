@@ -9,7 +9,9 @@ app.controller('AnotherCtrl', function($scope, $http) {
   // Populate $scope.list with a local $http call
   $http.get('list.json')
   .then(listData => {
+
     $scope.list = listData.data.list.map(each => `${each.name} from $http!`);
+
   });
 
 });
