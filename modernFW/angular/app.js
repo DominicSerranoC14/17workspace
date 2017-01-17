@@ -13,6 +13,10 @@ app.config(($routeProvider) => {
     controller: 'AnotherCtrl',
     templateUrl: 'views/another.html'
   })
+  .when('/:id', {
+    controller: 'DescCtrl',
+    templateUrl: 'views/desc.html'
+  })
   .otherwise('/');
 
 });

@@ -6,12 +6,12 @@ app.controller('AnotherCtrl', function($scope, $http) {
 
   $scope.list = ['Marlin', 'George', 'Lisa'];
 
+  $scope.sayMyName = (name) => alert(name);
+
   // Populate $scope.list with a local $http call
   $http.get('list.json')
-  .then(listData => {
-
-    $scope.list = listData.data.list.map(each => `${each.name} from $http!`);
-
+  .then(( {data: { list }} ) => {
+    $scope.list = list;
   });
 
 });
