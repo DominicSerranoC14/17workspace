@@ -9,12 +9,12 @@ app.controller('AnotherCtrl', function($scope, $http) {
   $scope.sayMyName = (name) => alert(name);
 
   // Populate $scope.list with a local $http call
-  $http.get('list.json')
+  $http.get('json/list.json')
   .then(( {data: { list }} ) => {
     $scope.list = list;
   });
 
-  $http.get('mushrooms.json')
+  $http.get('json/mushrooms.json')
   .then(( {data: {mushrooms}} ) => {
 
     $scope.mush = mushrooms;
