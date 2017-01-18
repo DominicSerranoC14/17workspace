@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -16,4 +20,24 @@
 
 .nav-bar a:hover {
   color: blue;
+}
+
+.mush-div {
+  border: solid 2px black;
+  width: 60%;
+  font: 30px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact input {
+  height: 20px;
+  margin: .5rem;
 }
