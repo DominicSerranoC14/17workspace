@@ -14,4 +14,12 @@ app.controller('AnotherCtrl', function($scope, $http) {
     $scope.list = list;
   });
 
+  $http.get('mushrooms.json')
+  .then(( {data: {mushrooms}} ) => {
+
+    $scope.mush = mushrooms;
+
+  });
+
+
 });
