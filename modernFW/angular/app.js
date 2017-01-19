@@ -17,6 +17,10 @@ app.config(($routeProvider) => {
     controller: 'PromiseCtrl',
     templateUrl: 'views/promise.html'
   })
+  .when('/movie', {
+    controller: 'MovieCtrl',
+    templateUrl: 'views/movie.html'
+  })
   .when('/:id', {
     controller: 'DescCtrl',
     templateUrl: 'views/desc.html'
