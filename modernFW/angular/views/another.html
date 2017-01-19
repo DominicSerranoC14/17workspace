@@ -1,0 +1,18 @@
+<h1>I am another view!</h1>
+<h1>My $scope.message variable: {{message}}</h1>
+<h3 ng-if="list.length === 3">I only show up if there are three names.</h3>
+<input type="text" ng-model="searchList" placeholder="Search here" />
+
+<div class="contact" ng-repeat="each in list | filter: searchList">
+  <h3><a href="#!/{{each.id}}">{{each.name}}</a></h3>
+  <input type="button" value="Click me" ng-click="sayMyName(each.name)" />
+</div>
+
+<h1>Mushroom Exercise Example</h1>
+<div class="mush-div" ng-repeat="each in mush">
+  <div ng-repeat="(key, value) in each">
+    <p>{{key.toUpperCase()}}</p>
+    <p>Edible: {{value.edible}}</p>
+    <p>{{value.description}}</p>
+  </div>
+</div>

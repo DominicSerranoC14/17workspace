@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 
 app.controller('HomeCtrl', function($scope) {
 
