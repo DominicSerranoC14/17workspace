@@ -1,0 +1,21 @@
+{
+  "name": "angular",
+  "homepage": "https://github.com/DominicSerranoC14/17workspace",
+  "authors": [
+    "Dominic Serrano <dmsrojo@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1"
+  }
+}
