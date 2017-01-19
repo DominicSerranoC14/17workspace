@@ -24,13 +24,19 @@ angular
         alert('Zipcode must be 5 digits long.');
         return;
       }
-      
+
       location.href = `/#!/weather/${search}`;
     };
 
   })
-  .controller('WeatherCtrl', function($scope, $routeParams) {
+  .controller('WeatherCtrl', function($scope, $routeParams, $http) {
 
-    $scope.temperature = $routeParams.zipcode;
+    $scope.zipcode = $routeParams.zipcode;
+
+    $http.get(`http://api.wunderground.com/api/d4fce7fe5acf4720/conditions/q/CA/San_Francisco.json`)
+    .then(httpData => httpData.data.current_observation)
+    .then(weatherObj => weatherObj.temp_f)
+    .then(obj => $scope.temperature = obj)
+    .then(console.log)
 
   })
