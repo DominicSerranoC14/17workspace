@@ -41,3 +41,31 @@ body {
   height: 20px;
   margin: .5rem;
 }
+
+/* Movie view styles */
+
+.movie-search-form input {
+  margin: 1rem;
+  font-size: 20px;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.movie-div {
+  width: 500px;
+  height: 20%;
+  color: white;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: black;
+  font-family: fantasy;
+}
+
+.movie-div img {
+  width: 150px;
+  height: 200px;
+}
