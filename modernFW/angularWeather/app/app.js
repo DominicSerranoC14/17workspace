@@ -29,14 +29,29 @@ angular
     };
 
   })
-  .controller('WeatherCtrl', function($scope, $routeParams, $http) {
+  .controller('WeatherCtrl', function($scope, $routeParams, WeatherFactory) {
 
     $scope.zipcode = $routeParams.zipcode;
 
-    $http.get(`http://api.wunderground.com/api/d4fce7fe5acf4720/conditions/q/CA/San_Francisco.json`)
-    .then(httpData => httpData.data.current_observation)
-    .then(weatherObj => weatherObj.temp_f)
-    .then(obj => $scope.temperature = obj)
-    .then(console.log)
+    // Using WeatherFactory.getWeather to return current temp
+    WeatherFactory.getWeather($routeParams.zipcode)
+    .then(obj => {
+      $scope.temperature = obj.temp;
+      $scope.city = obj.city;
+    })
 
   })
+  .factory('WeatherFactory', function($http) {
+
+    // Function which accepts a zipcode and returns the temp and city
+    function getWeather(zipcode) {
+      return $http.get(`http://api.wunderground.com/api/d4fce7fe5acf4720/conditions/q/${zipcode}.json`)
+      .then(httpData => ({
+        temp: httpData.data.current_observation.temp_f,
+        city: httpData.data.current_observation.display_location.full
+      }))
+    };
+
+    return { getWeather };
+
+  });
