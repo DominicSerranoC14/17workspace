@@ -4,6 +4,15 @@ angular
   .module('weather', ['ngRoute'])
   .config(($routeProvider) => {
 
+    // Object to pass to $routeProvider for resolve arg
+    const checkForAuth = {
+      checkForAuth: ($location) => {
+        firebase.auth().onAuthStateChanged(user => {
+          (user) ? alert('Welcome'): $location.url('/');
+        });
+      }
+    };
+
     $routeProvider
       .when('/', {
         controller: 'RootCtrl',
@@ -11,20 +20,16 @@ angular
       })
       .when('/weather/:zipcode', {
         controller: 'WeatherCtrl',
-        templateUrl: 'partials/weather.html'
+        templateUrl: 'partials/weather.html',
+        // Will run first, on bind
+        resolve: checkForAuth
       })
       .otherwise('/');
 
   })
   .run(($location) => {
 
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        console.log("In boii");
-      } else {
-        $location.url('/');
-      };
-    });
+
 
   })
   .controller('RootCtrl', function($scope) {
