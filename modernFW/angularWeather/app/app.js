@@ -4,11 +4,6 @@ angular
   .module('weather', ['ngRoute'])
   .config(($routeProvider) => {
 
-    // Object to pass to $routeProvider for resolve arg
-    const checkForAuth = {
-      checkForAuth: (AuthFactory) => AuthFactory.onAuth()
-    };
-
     $routeProvider
       .when('/', {
         controller: 'RootCtrl',
@@ -17,8 +12,9 @@ angular
       .when('/weather/:zipcode', {
         controller: 'WeatherCtrl',
         templateUrl: 'partials/weather.html',
-        // Will run first, on bind
-        resolve: checkForAuth
+        // Resolve will run first, on bind
+        // Object to pass to $routeProvider for resolve arg
+        resolve: { checkForAuth: (AuthFactory) => AuthFactory.onAuth() }
       })
       .otherwise('/');
 
