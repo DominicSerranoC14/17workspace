@@ -6,11 +6,7 @@ angular
 
     // Object to pass to $routeProvider for resolve arg
     const checkForAuth = {
-      checkForAuth: ($location) => {
-        firebase.auth().onAuthStateChanged(user => {
-          (user) ? alert('Welcome'): $location.url('/');
-        });
-      }
+      checkForAuth: (AuthFactory) => AuthFactory.onAuth()
     };
 
     $routeProvider
@@ -25,11 +21,6 @@ angular
         resolve: checkForAuth
       })
       .otherwise('/');
-
-  })
-  .run(($location) => {
-
-
 
   })
   .controller('RootCtrl', function($scope) {
@@ -60,7 +51,7 @@ angular
   .factory('WeatherFactory', function($http) {
 
     // Function which accepts a zipcode and returns the temp and city
-    function getWeather(zipcode) {
+    const getWeather = (zipcode) => {
       return $http.get(`http://api.wunderground.com/api/d4fce7fe5acf4720/conditions/q/${zipcode}.json`)
       .then(httpData => ({
         temp: httpData.data.current_observation.temp_f,
@@ -69,5 +60,18 @@ angular
     };
 
     return { getWeather };
+
+  })
+  .factory('AuthFactory', function($location) {
+
+    const onAuth = () => {
+      const authReady = firebase.auth().onAuthStateChanged(user => {
+        // Voids the authReady onAuthState listener
+        authReady();
+        (user) ? true: $location.url('/');
+      });
+    };
+
+    return { onAuth };
 
   });
