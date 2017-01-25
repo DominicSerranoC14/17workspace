@@ -10,15 +10,13 @@ app.controller('AnotherCtrl', function($scope, $http) {
 
   // Populate $scope.list with a local $http call
   $http.get('json/list.json')
-  .then(( {data: { list }} ) => {
+  .then(( {data: {list}} ) => {
     $scope.list = list;
   });
 
   $http.get('json/mushrooms.json')
   .then(( {data: {mushrooms}} ) => {
-
     $scope.mush = mushrooms;
-
   });
 
 

@@ -2,7 +2,6 @@
 
 app.controller('MovieCtrl', function($scope, $http, $q) {
 
-
   $scope.searchMovie = (searchTerm) => {
     $scope.movieList = "";
     $http.get(`http://www.omdbapi.com/?s=${searchTerm}`)
