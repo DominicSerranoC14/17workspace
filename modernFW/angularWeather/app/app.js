@@ -16,6 +16,17 @@ angular
       .otherwise('/');
 
   })
+  .run(($location) => {
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log("In boii");
+      } else {
+        $location.url('/');
+      };
+    });
+
+  })
   .controller('RootCtrl', function($scope) {
 
     $scope.searchForecast = (search) => {
