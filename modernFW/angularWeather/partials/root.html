@@ -4,3 +4,19 @@
   <input type="text" ng-model="searchInput" />
   <input type="submit" value="Get Weather" />
 </form>
+
+<div ng-repeat="each in list" class="edit">
+
+  <div ng-hide="edit">
+    <p class="edit-input">{{each.name}}</p>
+    <p class="edit-input">{{each.link}}</p>
+    <input class="edit-input" type="button" value="Edit" ng-click="edit = true">
+  </div>
+
+  <div ng-show="edit">
+    <input class="edit-input" ng-model="each.name">
+    <input class="edit-input" ng-model="each.link">
+    <input class="edit-input" type="button" value="Save" ng-click="edit = false">
+  </div>
+
+</div>
