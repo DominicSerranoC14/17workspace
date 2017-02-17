@@ -14,12 +14,23 @@ angular
         templateUrl: 'partials/weather.html',
         // Resolve will run first, on bind
         // Object to pass to $routeProvider for resolve arg
-        resolve: { checkForAuth: (AuthFactory) => AuthFactory.onAuth() }
+        resolve: {
+          weather: (WeatherFactory, $route) => {
+            return WeatherFactory.getWeather($route.current.params.zipcode)
+          },
+          // If user is signed in, resolve user
+          // Else redirect to '/' and alert err msg
+          user: (AuthFactory, $location) => AuthFactory.getUser().catch((err) => {
+            alert(err);
+            $location.url('/');
+          })
+        }
+
       })
       .otherwise('/');
 
   })
-  .controller('RootCtrl', function($scope) {
+  .controller('RootCtrl', function($scope, $location) {
 
     $scope.searchForecast = (search) => {
       if (search.length > 5 || search.length < 5) {
@@ -27,21 +38,28 @@ angular
         alert('Zipcode must be 5 digits long.');
         return;
       }
-
-      location.href = `/#!/weather/${search}`;
+      $location.url(`/weather/${search}`);
     };
 
+    // Example for edit in ng-repeat for multiple items
+    $scope.edit = false;
+
+    $scope.list = [
+      { name: 'One', link: 'www' },
+      { name: 'Two', link: 'io' },
+      { name: 'Three', link: 'com' },
+    ];
+
+    // $scope.switchEditMode = () => {
+    //   $scope.edit = !$scope.edit;
+    // };
+
   })
-  .controller('WeatherCtrl', function($scope, $routeParams, WeatherFactory) {
+  .controller('WeatherCtrl', function($scope, weather, user) {
 
-    $scope.zipcode = $routeParams.zipcode;
-
-    // Using WeatherFactory.getWeather to return current temp
-    WeatherFactory.getWeather($routeParams.zipcode)
-    .then(obj => {
-      $scope.temperature = obj.temp;
-      $scope.city = obj.city;
-    })
+    $scope.zipcode = weather.zipcode;
+    $scope.temperature = weather.temp;
+    $scope.city = weather.city;
 
   })
   .factory('WeatherFactory', function($http) {
@@ -50,6 +68,7 @@ angular
     const getWeather = (zipcode) => {
       return $http.get(`http://api.wunderground.com/api/d4fce7fe5acf4720/conditions/q/${zipcode}.json`)
       .then(httpData => ({
+        "zipcode": zipcode,
         temp: httpData.data.current_observation.temp_f,
         city: httpData.data.current_observation.display_location.full
       }))
@@ -58,16 +77,17 @@ angular
     return { getWeather };
 
   })
-  .factory('AuthFactory', function($location) {
+  .factory('AuthFactory', function($location, $q) {
 
-    const onAuth = () => {
-      const authReady = firebase.auth().onAuthStateChanged(user => {
-        // Voids the authReady onAuthState listener
-        authReady();
-        (user) ? true: $location.url('/');
+    const getUser = () => {
+      return $q((resolve, reject) => {
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+          unsubscribe();
+          (user) ? resolve(user): reject('Please sign in.');
+        });
       });
     };
 
-    return { onAuth };
+    return { getUser };
 
   });

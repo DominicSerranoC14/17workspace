@@ -1,0 +1,10 @@
+.edit {
+  margin: 2rem;
+  border: .25rem black solid;
+  text-align: center;
+  width: 30%;
+}
+
+.edit-input {
+  margin: .5rem;
+}
