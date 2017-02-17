@@ -1,3 +1,8 @@
+/* CSS4 variables */
+:root {
+  --main-color: tomato;
+}
+
 .edit {
   margin: 2rem;
   border: .25rem black solid;
@@ -7,4 +12,8 @@
 
 .edit-input {
   margin: .5rem;
+}
+
+p {
+  color: var(--main-color);
 }
