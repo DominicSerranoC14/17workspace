@@ -10,6 +10,7 @@
   <div ng-hide="edit">
     <p class="edit-input">{{each.name}}</p>
     <p class="edit-input">{{each.link}}</p>
+    <!-- 'edit = true' creates a edit variable on the child scope -->
     <input class="edit-input" type="button" value="Edit" ng-click="edit = true">
   </div>
 

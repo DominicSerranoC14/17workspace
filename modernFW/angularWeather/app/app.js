@@ -42,17 +42,11 @@ angular
     };
 
     // Example for edit in ng-repeat for multiple items
-    $scope.edit = false;
-
     $scope.list = [
       { name: 'One', link: 'www' },
       { name: 'Two', link: 'io' },
       { name: 'Three', link: 'com' },
     ];
-
-    // $scope.switchEditMode = () => {
-    //   $scope.edit = !$scope.edit;
-    // };
 
   })
   .controller('WeatherCtrl', function($scope, weather, user) {
